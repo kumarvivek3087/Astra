@@ -1,0 +1,22 @@
+{
+  "routes": [
+    { "route": "/contact/submit.php", "statusCode": 404 },
+    { "route": "/contact/createDB.sql", "statusCode": 404 },
+    { "route": "/", "rewrite": "/index.htm" },
+    { "route": "/about/", "rewrite": "/about/index.htm" },
+    { "route": "/career/", "rewrite": "/career/index.htm" },
+    { "route": "/career/srITEngineerInfra/", "rewrite": "/career/srITEngineerInfra/index.htm" },
+    { "route": "/contact/", "rewrite": "/contact/index.htm" },
+    { "route": "/courses/", "rewrite": "/courses/index.htm" },
+    { "route": "/privacy/", "rewrite": "/privacy/index.htm" },
+    { "route": "/products/", "rewrite": "/products/index.htm" }
+  ],
+  "mimeTypes": {
+    ".htm": "text/html",
+    ".webp": "image/webp",
+    ".avif": "image/avif"
+  },
+  "responseOverrides": {
+    "404": { "rewrite": "/index.htm" }
+  }
+}

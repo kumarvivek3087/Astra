@@ -57,7 +57,7 @@ Courses Offered
 
             <!-- FORM START -->
            <!-- FORM START -->
-<form id="contact-form" action="submit.php" method="POST"> 
+<form id="contact-form">
   <div class="row"> 
 
     <div class="col-lg-6 col-md-6"> 
@@ -250,4 +250,40 @@ India’s Most Trusted Destination For AI & Robotics Education
 
 
 
-<!--===== JS SCRIPT LINK =======--> <script src="../assets/js/vendor/bootstrap.min-1.js"></script> <script src="../assets/js/vendor/fontawesome-1.js"></script> <script src="../assets/js/vendor/aos-1.js"></script> <script src="../assets/js/vendor/jquery.appear-1.js"></script> <script src="../assets/js/vendor/jquery.odometer.min-1.js"></script> <script src="../assets/js/vendor/sidebar-1.js"></script> <script src="../assets/js/vendor/magnific-popup-1.js"></script> <script src="../assets/js/vendor/gsap.min-1.js"></script> <script src="../assets/js/vendor/ScrollTrigger.min-1.js"></script> <script src="../assets/js/vendor/Splitetext-1.js"></script> <script src="../assets/js/vendor/mobilemenu-1.js"></script> <script src="../assets/js/vendor/owlcarousel.min-1.js"></script> <script src="../assets/js/vendor/nice-select-1.js"></script> <script src="../assets/js/vendor/waypoints-1.js"></script> <script src="../assets/js/vendor/slick-slider-1.js"></script> <script src="../assets/js/vendor/circle-progress-1.js"></script> <script src="../assets/js/main-1.js"></script> </body> </html>
+<!--===== JS SCRIPT LINK =======--> <script src="../assets/js/vendor/bootstrap.min-1.js"></script> <script src="../assets/js/vendor/fontawesome-1.js"></script> <script src="../assets/js/vendor/aos-1.js"></script> <script src="../assets/js/vendor/jquery.appear-1.js"></script> <script src="../assets/js/vendor/jquery.odometer.min-1.js"></script> <script src="../assets/js/vendor/sidebar-1.js"></script> <script src="../assets/js/vendor/magnific-popup-1.js"></script> <script src="../assets/js/vendor/gsap.min-1.js"></script> <script src="../assets/js/vendor/ScrollTrigger.min-1.js"></script> <script src="../assets/js/vendor/Splitetext-1.js"></script> <script src="../assets/js/vendor/mobilemenu-1.js"></script> <script src="../assets/js/vendor/owlcarousel.min-1.js"></script> <script src="../assets/js/vendor/nice-select-1.js"></script> <script src="../assets/js/vendor/waypoints-1.js"></script> <script src="../assets/js/vendor/slick-slider-1.js"></script> <script src="../assets/js/vendor/circle-progress-1.js"></script> <script src="../assets/js/main-1.js"></script>
+<!-- ===== EmailJS contact form (static hosting / Azure SWA) ===== -->
+<script src="../npm/%40emailjs/browser%404/dist/email.min.js"></script>
+<script>
+(function () {
+  const publicKey = "EY5z0IfgndM4i07_T";
+  const serviceId = "service_4j3dbp8";
+  const templateId = "template_qmq8rft";
+  emailjs.init(publicKey);
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const btn = form.querySelector("button[type=submit]");
+    if (btn) btn.disabled = true;
+    emailjs.send(serviceId, templateId, {
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value,
+    }).then(
+      function () {
+        alert("Message sent successfully!");
+        form.reset();
+        if (btn) btn.disabled = false;
+      },
+      function (error) {
+        alert("Failed to send message. Please try again later.");
+        console.error("EmailJS Error:", error);
+        if (btn) btn.disabled = false;
+      }
+    );
+  });
+})();
+</script>
+</body> </html>
