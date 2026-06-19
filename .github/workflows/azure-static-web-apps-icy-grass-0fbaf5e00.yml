@@ -31,6 +31,7 @@ jobs:
           app_location: "./Astra" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "." # Built app content directory - optional
+          skip_app_build: true # Prebuilt static site; don't let Oryx treat submit.php as a PHP app to build
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
